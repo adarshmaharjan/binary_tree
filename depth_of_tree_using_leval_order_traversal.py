@@ -25,9 +25,10 @@ def height(root):
     q.append(None)
     
     while(len(q)>0):
-        temp = q[0]
-        q = q[1:]
         print(q)
+        temp = q[0]
+        print(temp)
+        q = q[1:]
 
         if(temp is None):
             depth+=1
