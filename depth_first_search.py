@@ -6,7 +6,7 @@ class Node:
 
 def maxDepth(node):
     if node is None:
-        return 0;
+        return 0
     else:
         lDepth = maxDepth(node.left)
         rDepth = maxDepth(node.right)
