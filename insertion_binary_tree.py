@@ -1,22 +1,15 @@
-from platform import node
-from re import A
-
-
 class newNode:
-    def __init__(self, data) -> None:
+    def __init__(self, data):
         self.key = data
         self.left = None
         self.right = None
-
-    def __repr__(self) -> str:
-        return f"{self.key}"
 
 
 def inorder(temp):
     if not temp:
         return
     inorder(temp.left)
-    print(temp.key, end="->")
+    print(temp.key, end=" ")
     inorder(temp.right)
 
 
@@ -30,7 +23,6 @@ def insert(temp, key):
     while len(q):
         temp = q[0]
         q.pop(0)
-
         if not temp.left:
             temp.left = newNode(key)
             break
@@ -44,19 +36,20 @@ def insert(temp, key):
             q.append(temp.right)
 
 
-root = newNode(1)
-root.left = newNode(2)
-root.left.left = newNode(3)
-root.right = newNode(4)
-root.right.left = newNode(5)
-root.right.right = newNode(8)
+if __name__ == "__main__":
+    root = newNode(10)
+    root.left = newNode(11)
+    root.left.left = newNode(7)
+    root.right = newNode(9)
+    root.right.left = newNode(15)
+    root.right.right = newNode(8)
 
+    print("Inorder traversal before insertion:", end=" ")
+    inorder(root)
 
-print("In order traversal before insertion", end="\n")
-inorder(root)
+    key = 12
+    insert(root, key)
 
-key = 12
-insert(root, key)
-print("\n")
-print("Inorder traversal after insertion", end="\n")
-inorder(root)
+    print()
+    print("Inorder traversal after insertion:", end=" ")
+    inorder(root)
